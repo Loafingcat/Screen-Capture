@@ -1,0 +1,21 @@
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\Screen Capture.exe
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\Screen Capture.deps.json
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\Screen Capture.runtimeconfig.json
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\Screen Capture.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\Screen Capture.pdb
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\MainWindow.g.cs
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\App.g.cs
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture_MarkupCompile.cache
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture_MarkupCompile.lref
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\MainWindow.baml
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.g.resources
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.AssemblyInfoInputs.cache
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.AssemblyInfo.cs
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.csproj.CoreCompileInputs.cache
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\refint\Screen Capture.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.pdb
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.genruntimeconfig.cache
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\ref\Screen Capture.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.csproj.AssemblyReference.cache

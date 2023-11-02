@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "YFx9l1OQre4K+GI3Z2IWYf2UxFynOVf4d8uknL2X6tJXYbXkkkKuWa/h4sOFkCBe01qD5PN4ZJxbnMNfx4MgCQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bj\\Downloads\\WPFtest\\Screen Capture\\Screen Capture\\Screen Capture.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\bj\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\bj\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
