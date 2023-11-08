@@ -17,17 +17,30 @@ namespace Screen_Capture
 
         private void CaptureScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            // 화면 캡처
-            using (Bitmap bmp = new Bitmap((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight))
+            try
             {
-                using (Graphics g = Graphics.FromImage(bmp))
-                {
-                    g.CopyFromScreen(0, 0, 0, 0, bmp.Size);
-                }
+                double screenLeft = SystemParameters.VirtualScreenLeft;
+                double screenTop = SystemParameters.VirtualScreenTop;
+                double screenWidth = SystemParameters.VirtualScreenWidth;
+                double screenHeight = SystemParameters.VirtualScreenHeight;
 
-                // 이미지 표시
-                BitmapImage bitmapImage = ConvertToBitmapImage(bmp);
-                previewImage.Source = bitmapImage;
+                // 화면 캡처
+                using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
+                {
+                    using (Graphics g = Graphics.FromImage(bmp))
+                    {
+                        g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
+                    }
+
+                    // 이미지 표시
+                    BitmapImage bitmapImage = ConvertToBitmapImage(bmp);
+                    previewImage.Source = bitmapImage;
+                }
+            }
+            catch (Exception ex)
+            {
+                // 예외 메시지 출력
+                MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
             }
         }
 
