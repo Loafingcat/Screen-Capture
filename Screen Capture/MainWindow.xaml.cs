@@ -82,6 +82,7 @@ namespace Screen_Capture
                         encoder.Save(fileStream);
                     }
                 }
+
                 catch (Exception ex)
                 {
                     // 예외 메시지 출력
