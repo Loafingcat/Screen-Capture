@@ -48,6 +48,57 @@
             "rid": "win"
           }
         }
+      },
+      "System.Reactive/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Reactive.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.Reactive.Windows.Forms/6.0.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "6.0.0",
+          "System.Threading.Tasks.Extensions": "4.5.4"
+        },
+        "compile": {
+          "lib/net472/System.Reactive.Windows.Forms.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net472/System.Reactive.Windows.Forms.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "System.Threading.Tasks.Extensions/4.5.4": {
+        "type": "package",
+        "compile": {
+          "ref/netcoreapp2.1/_._": {}
+        },
+        "runtime": {
+          "lib/netcoreapp2.1/_._": {}
+        }
+      },
+      "System.Windows.Forms.Ribbon35/3.5.8": {
+        "type": "package",
+        "compile": {
+          "lib/net35/System.Windows.Forms.Ribbon35.dll": {}
+        },
+        "runtime": {
+          "lib/net35/System.Windows.Forms.Ribbon35.dll": {}
+        }
       }
     }
   },
@@ -119,11 +170,106 @@
         "system.drawing.common.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "System.Reactive/6.0.0": {
+      "sha512": "31kfaW4ZupZzPsI5PVe77VhnvFF55qgma7KZr/E0iFTs6fmdhhG8j0mgEx620iLTey1EynOkEfnyTjtNEpJzGw==",
+      "type": "package",
+      "path": "system.reactive/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net6.0-windows10.0.19041/_._",
+        "build/net6.0/_._",
+        "buildTransitive/net6.0-windows10.0.19041/_._",
+        "buildTransitive/net6.0/_._",
+        "icon.png",
+        "lib/net472/System.Reactive.dll",
+        "lib/net472/System.Reactive.xml",
+        "lib/net6.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net6.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net6.0/System.Reactive.dll",
+        "lib/net6.0/System.Reactive.xml",
+        "lib/netstandard2.0/System.Reactive.dll",
+        "lib/netstandard2.0/System.Reactive.xml",
+        "lib/uap10.0.18362/System.Reactive.dll",
+        "lib/uap10.0.18362/System.Reactive.pri",
+        "lib/uap10.0.18362/System.Reactive.xml",
+        "readme.md",
+        "system.reactive.6.0.0.nupkg.sha512",
+        "system.reactive.nuspec"
+      ]
+    },
+    "System.Reactive.Windows.Forms/6.0.0": {
+      "sha512": "pQCce4p+GOZonalArduNFdcmS1NLiZT5KnAFqvJpkSMrEtjmXI+3OPzSXTkQvJpBhVsct4+BInu7HO5k+4kVnA==",
+      "type": "package",
+      "path": "system.reactive.windows.forms/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net472/System.Reactive.Windows.Forms.dll",
+        "lib/net472/System.Reactive.Windows.Forms.xml",
+        "readme.md",
+        "system.reactive.windows.forms.6.0.0.nupkg.sha512",
+        "system.reactive.windows.forms.nuspec"
+      ]
+    },
+    "System.Threading.Tasks.Extensions/4.5.4": {
+      "sha512": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
+      "type": "package",
+      "path": "system.threading.tasks.extensions/4.5.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net461/System.Threading.Tasks.Extensions.dll",
+        "lib/net461/System.Threading.Tasks.Extensions.xml",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard1.0/System.Threading.Tasks.Extensions.xml",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.dll",
+        "lib/netstandard2.0/System.Threading.Tasks.Extensions.xml",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.dll",
+        "lib/portable-net45+win8+wp8+wpa81/System.Threading.Tasks.Extensions.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+        "system.threading.tasks.extensions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Windows.Forms.Ribbon35/3.5.8": {
+      "sha512": "eCT9IcJyU/NDrDA7Obp40Ata7hvPTVrtKjcofJe4LC/qjx7MNpOR0vNDfc5IDEzZi5bP5wGfJpVOWnnFeL2AUQ==",
+      "type": "package",
+      "path": "system.windows.forms.ribbon35/3.5.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Updates.txt",
+        "lib/net35/System.Windows.Forms.Ribbon35.dll",
+        "system.windows.forms.ribbon35.3.5.8.nupkg.sha512",
+        "system.windows.forms.ribbon35.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
-      "System.Drawing.Common >= 7.0.0"
+      "System.Drawing.Common >= 7.0.0",
+      "System.Reactive.Windows.Forms >= 6.0.0",
+      "System.Windows.Forms.Ribbon35 >= 3.5.8"
     ]
   },
   "packageFolders": {
@@ -168,6 +314,14 @@
           "System.Drawing.Common": {
             "target": "Package",
             "version": "[7.0.0, )"
+          },
+          "System.Reactive.Windows.Forms": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          },
+          "System.Windows.Forms.Ribbon35": {
+            "target": "Package",
+            "version": "[3.5.8, )"
           }
         },
         "imports": [
@@ -185,6 +339,9 @@
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           },
+          "Microsoft.WindowsDesktop.App": {
+            "privateAssets": "none"
+          },
           "Microsoft.WindowsDesktop.App.WPF": {
             "privateAssets": "none"
           }
@@ -192,5 +349,27 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 'net7.0-windows7.0' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1'을(를) 사용하여 패키지 'System.Reactive.Windows.Forms 6.0.0'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "System.Reactive.Windows.Forms",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "프로젝트 대상 프레임워크 'net7.0-windows7.0' 대신 '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1'을(를) 사용하여 패키지 'System.Windows.Forms.Ribbon35 3.5.8'을(를) 복원했습니다. 이 패키지는 프로젝트와 완벽하게 호환되지 않을 수 있습니다.",
+      "libraryId": "System.Windows.Forms.Ribbon35",
+      "targetGraphs": [
+        "net7.0-windows7.0"
+      ]
+    }
+  ]
 }

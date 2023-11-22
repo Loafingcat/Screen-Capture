@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System;
+using System.Windows.Forms;
 
 
 namespace Screen_Capture
@@ -19,35 +20,32 @@ namespace Screen_Capture
         {
             try
             {
-                double screenLeft = SystemParameters.VirtualScreenLeft;
-                double screenTop = SystemParameters.VirtualScreenTop;
-                double screenWidth = SystemParameters.VirtualScreenWidth;
-                double screenHeight = SystemParameters.VirtualScreenHeight;
+                // 주 화면의 크기 정보 읽기
+                Screen scr = Screen.PrimaryScreen;
+                Rectangle rect = scr.Bounds;
 
-                // 화면 캡처 전체 캡쳐 다른방식
-                using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
+                Bitmap bmp = new Bitmap(rect.Width, rect.Height);
+
+                using (Graphics g = Graphics.FromImage(bmp))
                 {
-                    using (Graphics g = Graphics.FromImage(bmp))
-                    {
-                        g.CopyFromScreen((int)screenLeft, (int)screenTop, 0, 0, bmp.Size);
-                    }
-
-                    // 이미지 표시
-                    BitmapImage bitmapImage = ConvertToBitmapImage(bmp);
-                    previewImage.Source = bitmapImage;
+                    g.CopyFromScreen(rect.Left, rect.Top, 0, 0, rect.Size);
                 }
+
+                // 이미지 표시
+                BitmapImage bitmapImage = ConvertToBitmapImage(bmp);
+                previewImage.Source = bitmapImage;
             }
             catch (Exception ex)
             {
                 // 예외 메시지 출력
-                MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
+                System.Windows.MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
             }
         }
 
         private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
         {
             BitmapImage bitmapImage = new BitmapImage();
-            using (var memory = new System.IO.MemoryStream())
+            using (var memory = new MemoryStream())
             {
                 bitmap.Save(memory, ImageFormat.Png);
                 memory.Position = 0;
@@ -58,11 +56,11 @@ namespace Screen_Capture
             }
             return bitmapImage;
         }
+
         private void SaveImageButton_Click(object sender, RoutedEventArgs e)
         {
-            //previewImage의 Source 속성이 null이 아닌 경우에만 이미지 저장
+            // previewImage의 Source 속성이 null이 아닌 경우에만 이미지 저장
             if (previewImage.Source != null)
-
             {
                 // 이미지를 파일로 저장할 경로를 지정
                 string savePath = "C:\\Users\\bj\\Desktop\\화면캡쳐테스트\\image.png";
@@ -71,9 +69,9 @@ namespace Screen_Capture
                 {
                     // 이미지 저장을 위해 previewImage의 Source에서 BitmapImage 객체를 가져옴
                     BitmapImage bitmapImage = (BitmapImage)previewImage.Source;
-                    //PngBitmapEncoder 클래스를 사용해서 이미지를 PNG 형식으로 저장할 준비
+                    // PngBitmapEncoder 클래스를 사용해서 이미지를 PNG 형식으로 저장할 준비
                     BitmapEncoder encoder = new PngBitmapEncoder();
-                    //BitmapImage를 BitmapFrame으로 변환하고 encoder에 추가
+                    // BitmapImage를 BitmapFrame으로 변환하고 encoder에 추가
                     encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
 
                     // 이미지를 파일로 저장하기 위해 FileStream 객체를 사용, 파일 스트림을 열고 이미지 저장
@@ -82,11 +80,10 @@ namespace Screen_Capture
                         encoder.Save(fileStream);
                     }
                 }
-
                 catch (Exception ex)
                 {
                     // 예외 메시지 출력
-                    MessageBox.Show("예외 발생: " + ex.Message);
+                    System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
                 }
             }
         }

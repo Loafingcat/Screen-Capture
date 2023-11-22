@@ -19,3 +19,7 @@ C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-win
 C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.genruntimeconfig.cache
 C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\ref\Screen Capture.dll
 C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.csproj.AssemblyReference.cache
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\System.Reactive.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\System.Reactive.Windows.Forms.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\bin\Debug\net7.0-windows\System.Windows.Forms.Ribbon35.dll
+C:\Users\bj\Downloads\WPFtest\Screen Capture\Screen Capture\obj\Debug\net7.0-windows\Screen Capture.csproj.CopyComplete
