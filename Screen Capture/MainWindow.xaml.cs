@@ -24,7 +24,7 @@ namespace Screen_Capture
                 double screenWidth = SystemParameters.VirtualScreenWidth;
                 double screenHeight = SystemParameters.VirtualScreenHeight;
 
-                // 화면 캡처
+                // 화면 캡처 전체 캡쳐 다른방식
                 using (Bitmap bmp = new Bitmap((int)screenWidth, (int)screenHeight))
                 {
                     using (Graphics g = Graphics.FromImage(bmp))
