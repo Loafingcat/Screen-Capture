@@ -20,11 +20,11 @@ namespace Screen_Capture
         {
             try
             {
-                // 주 화면의 크기 정보 읽기
-                Screen scr = Screen.PrimaryScreen;
-                Rectangle rect = scr.Bounds;
+                // 화면 표현하는 Screen 사용. 주 화면의 크기 정보 읽기
+                Screen scr = Screen.PrimaryScreen; //주화면 표시
+                Rectangle rect = scr.Bounds; //Bounds는 스크린 좌표 정보를 위해. Rectangle 타입임
 
-                Bitmap bmp = new Bitmap(rect.Width, rect.Height);
+                Bitmap bmp = new Bitmap(rect.Width, rect.Height); //bitmap에 화면 정보 저장
 
                 using (Graphics g = Graphics.FromImage(bmp))
                 {
@@ -62,8 +62,16 @@ namespace Screen_Capture
             // previewImage의 Source 속성이 null이 아닌 경우에만 이미지 저장
             if (previewImage.Source != null)
             {
+
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+@"\Test";
+
+
+                DirectoryInfo di = new DirectoryInfo(desktopPath);
+                if (di.Exists == false) di.Create();
+
+
                 // 이미지를 파일로 저장할 경로를 지정
-                string savePath = "C:\\Users\\bj\\Desktop\\화면캡쳐테스트\\image.png";
+                string savePath = desktopPath + @"\test.png";
 
                 try
                 {
