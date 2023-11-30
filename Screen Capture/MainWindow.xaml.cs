@@ -79,12 +79,18 @@ namespace Screen_Capture
                         {
                             encoder.Save(fileStream);
                         }
+                        System.Windows.MessageBox.Show($"이미지가 성공적으로 저장되었습니다: {savePath}", "저장 완료", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     catch (Exception ex)
                     {
                         System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
                     }
                 }
+            }
+            else
+            {
+                // 저장할 이미지가 없다는 메시지 출력
+                System.Windows.MessageBox.Show("저장할 이미지가 없습니다.", "경고", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
     }
