@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Drawing;
@@ -6,11 +7,12 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
 
-
 namespace Screen_Capture
 {
     public partial class MainWindow : Window
     {
+        private List<BitmapImage> capturedImages = new List<BitmapImage>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -20,24 +22,22 @@ namespace Screen_Capture
         {
             try
             {
-                // 화면 표현하는 Screen 사용. 주 화면의 크기 정보 읽기
-                Screen scr = Screen.PrimaryScreen; //주화면 표시
-                Rectangle rect = scr.Bounds; //Bounds는 스크린 좌표 정보를 위해. Rectangle 타입임
-
-                Bitmap bmp = new Bitmap(rect.Width, rect.Height); //bitmap에 화면 정보 저장
+                Screen scr = Screen.PrimaryScreen;
+                Rectangle rect = scr.Bounds;
+                Bitmap bmp = new Bitmap(rect.Width, rect.Height);
 
                 using (Graphics g = Graphics.FromImage(bmp))
                 {
                     g.CopyFromScreen(rect.Left, rect.Top, 0, 0, rect.Size);
                 }
 
-                // 이미지 표시
                 BitmapImage bitmapImage = ConvertToBitmapImage(bmp);
                 previewImage.Source = bitmapImage;
+
+                capturedImages.Add(bitmapImage);
             }
             catch (Exception ex)
             {
-                // 예외 메시지 출력
                 System.Windows.MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
             }
         }
@@ -59,39 +59,31 @@ namespace Screen_Capture
 
         private void SaveImageButton_Click(object sender, RoutedEventArgs e)
         {
-            // previewImage의 Source 속성이 null이 아닌 경우에만 이미지 저장
-            if (previewImage.Source != null)
+            if (capturedImages.Count > 0)
             {
-
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+@"\Test";
-
-
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
-                if (di.Exists == false) di.Create();
+                if (!di.Exists) di.Create();
 
-
-                // 이미지를 파일로 저장할 경로를 지정
-                string savePath = desktopPath + @"\test.png";
-
-                try
+                for (int i = 0; i < capturedImages.Count; i++)
                 {
-                    // 이미지 저장을 위해 previewImage의 Source에서 BitmapImage 객체를 가져옴
-                    BitmapImage bitmapImage = (BitmapImage)previewImage.Source;
-                    // PngBitmapEncoder 클래스를 사용해서 이미지를 PNG 형식으로 저장할 준비
-                    BitmapEncoder encoder = new PngBitmapEncoder();
-                    // BitmapImage를 BitmapFrame으로 변환하고 encoder에 추가
-                    encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+                    string savePath = desktopPath + $@"\test_{i + 1}.png";
 
-                    // 이미지를 파일로 저장하기 위해 FileStream 객체를 사용, 파일 스트림을 열고 이미지 저장
-                    using (var fileStream = new FileStream(savePath, FileMode.Create))
+                    try
                     {
-                        encoder.Save(fileStream);
+                        BitmapImage bitmapImage = capturedImages[i];
+                        BitmapEncoder encoder = new PngBitmapEncoder();
+                        encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+
+                        using (var fileStream = new FileStream(savePath, FileMode.Create))
+                        {
+                            encoder.Save(fileStream);
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    // 예외 메시지 출력
-                    System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
+                    catch (Exception ex)
+                    {
+                        System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
+                    }
                 }
             }
         }
