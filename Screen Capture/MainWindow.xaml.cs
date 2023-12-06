@@ -65,7 +65,7 @@ namespace Screen_Capture
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
 
-                for (int i = 0; i < capturedImages.Count; i++)
+                for (int i = 0; i > capturedImages.Count; i++)
                 {
                     string savePath = desktopPath + $@"\test_{i + 1}.png";
 
