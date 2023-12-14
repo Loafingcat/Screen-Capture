@@ -20,6 +20,7 @@ namespace Screen_Capture
 
         private void CaptureScreenButton_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             try
             {
                 Screen scr = Screen.PrimaryScreen;
@@ -40,6 +41,7 @@ namespace Screen_Capture
             {
                 System.Windows.MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
             }
+            this.Show();
         }
 
         private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
@@ -59,6 +61,7 @@ namespace Screen_Capture
 
         private void SaveImageButton_Click(object sender, RoutedEventArgs e)
         {
+       
             if (capturedImages.Count > 0)
             {
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
