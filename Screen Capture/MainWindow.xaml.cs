@@ -41,7 +41,7 @@ namespace Screen_Capture
             {
                 System.Windows.MessageBox.Show("캡처 중 예외 발생: " + ex.Message);
             }
-            this.Show();
+            this.Show();//보이게
         }
 
         private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
