@@ -20,7 +20,7 @@ namespace Screen_Capture
 
         private void CaptureScreenButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
+            this.Hide(); //숨기는 코드
             try
             {
                 Screen scr = Screen.PrimaryScreen;
