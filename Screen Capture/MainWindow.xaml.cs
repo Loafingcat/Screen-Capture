@@ -21,6 +21,7 @@ namespace Screen_Capture
         private void CaptureScreenButton_Click(object sender, RoutedEventArgs e)
         {
             this.Hide(); //숨기는 코드
+
             try
             {
                 Screen scr = Screen.PrimaryScreen;
@@ -67,7 +68,7 @@ namespace Screen_Capture
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
-
+                //함수 부분 오류있음 고쳐야함
                 for (int i = 0; i > capturedImages.Count; i++)
                 {
                     string savePath = desktopPath + $@"\test_{i + 1}.png";
