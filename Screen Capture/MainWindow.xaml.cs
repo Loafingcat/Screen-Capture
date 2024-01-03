@@ -68,7 +68,7 @@ namespace Screen_Capture
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
-                //함수 부분 오류있음 고쳐야함
+                //여러장을 저장하는 과정에서의 오류발생 함수 문제인듯
                 for (int i = 0; i > capturedImages.Count; i++)
                 {
                     string savePath = desktopPath + $@"\test_{i + 1}.png";
