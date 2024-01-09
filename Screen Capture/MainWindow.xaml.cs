@@ -62,39 +62,41 @@ namespace Screen_Capture
 
         private void SaveImageButton_Click(object sender, RoutedEventArgs e)
         {
-       
             if (capturedImages.Count > 0)
             {
                 string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
-                //여러장을 저장하는 과정에서의 오류발생 함수 문제인듯
-                for (int i = 0; i > capturedImages.Count; i++)
+
+                string savePath = desktopPath + @"\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".png";
+
+                try
                 {
-                    string savePath = desktopPath + $@"\test_{i + 1}.png";
-
-                    try
-                    {
-                        BitmapImage bitmapImage = capturedImages[i];
-                        BitmapEncoder encoder = new PngBitmapEncoder();
-                        encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
-
-                        using (var fileStream = new FileStream(savePath, FileMode.Create))
-                        {
-                            encoder.Save(fileStream);
-                        }
-                        System.Windows.MessageBox.Show($"이미지가 성공적으로 저장되었습니다: {savePath}", "저장 완료", MessageBoxButton.OK, MessageBoxImage.Information);
-                    }
-                    catch (Exception ex)
-                    {
-                        System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
-                    }
+                    // Convert BitmapImage back to Bitmap
+                    Bitmap bitmap = ConvertBitmapImageToBitmap(capturedImages[capturedImages.Count - 1]);
+                    bitmap.Save(savePath, ImageFormat.Png);
+                    System.Windows.MessageBox.Show($"이미지가 성공적으로 저장되었습니다: {savePath}", "저장 완료", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.MessageBox.Show("예외 발생: " + ex.Message);
                 }
             }
             else
             {
                 // 저장할 이미지가 없다는 메시지 출력
                 System.Windows.MessageBox.Show("저장할 이미지가 없습니다.", "경고", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+        private Bitmap ConvertBitmapImageToBitmap(BitmapImage bitmapImage)
+        {
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapImage));
+                enc.Save(outStream);
+                Bitmap bitmap = new Bitmap(outStream);
+                return new Bitmap(bitmap);
             }
         }
     }
