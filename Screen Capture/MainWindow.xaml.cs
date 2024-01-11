@@ -45,7 +45,7 @@ namespace Screen_Capture
             this.Show();//보이게
         }
 
-        private BitmapImage ConvertToBitmapImage(Bitmap bitmap)
+        private BitmapImage ConvertToBitmapImage(Bitmap bitmap)//캡쳐 부분에선 bitmap을 bitmapimage로 변환하여 캡쳐된 화면을 보여줌
         {
             BitmapImage bitmapImage = new BitmapImage();
             using (var memory = new MemoryStream())
@@ -64,7 +64,8 @@ namespace Screen_Capture
         {
             if (capturedImages.Count > 0)
             {
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\Test";
+                //폴더 없을 경우 폴더 생성일로 폴더 생성
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + DateTime.Now.ToString("yyyy-MM-dd");
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
 
@@ -72,8 +73,8 @@ namespace Screen_Capture
 
                 try
                 {
-                    // Convert BitmapImage back to Bitmap
-                    Bitmap bitmap = ConvertBitmapImageToBitmap(capturedImages[capturedImages.Count - 1]);
+                   
+                    Bitmap bitmap = ConvertBitmapImageToBitmap(capturedImages[capturedImages.Count - 1]);//마지막으로 저장된 항목 찾기
                     bitmap.Save(savePath, ImageFormat.Png);
                     System.Windows.MessageBox.Show($"이미지가 성공적으로 저장되었습니다: {savePath}", "저장 완료", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -88,7 +89,7 @@ namespace Screen_Capture
                 System.Windows.MessageBox.Show("저장할 이미지가 없습니다.", "경고", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
-        private Bitmap ConvertBitmapImageToBitmap(BitmapImage bitmapImage)
+        private Bitmap ConvertBitmapImageToBitmap(BitmapImage bitmapImage)//저장 부분에선 bitmapimage를 다시 bitmap으로 돌려서 저장해줌
         {
             using (MemoryStream outStream = new MemoryStream())
             {

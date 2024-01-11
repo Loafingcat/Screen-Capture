@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:Screen_Capture"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="캡쳐하기" HorizontalAlignment="Left" Height="26" Margin="559,398,0,0" VerticalAlignment="Top" Width="65" Click="CaptureScreenButton_Click"/>
-        <Image x:Name="previewImage" Margin="90,22,90,54"/>
-        <Button Content="저장" HorizontalAlignment="Left" Margin="652,398,0,0" VerticalAlignment="Top" Height="26" Width="45" Click="SaveImageButton_Click"/>
+    <Grid Margin="0,0,0,-6" HorizontalAlignment="Center" Width="800">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="109*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="캡쳐하기" HorizontalAlignment="Left" Height="26" Margin="629,383,0,0" VerticalAlignment="Top" Width="53" Click="CaptureScreenButton_Click" RenderTransformOrigin="0.484,-3.079"/>
+        <Image x:Name="previewImage" Margin="90,9,90,74"/>
+        <Button Content="저장" HorizontalAlignment="Left" Margin="710,383,0,0" VerticalAlignment="Top" Height="26" Width="45" Click="SaveImageButton_Click"/>
     </Grid>
 </Window>
