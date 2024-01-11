@@ -65,7 +65,7 @@ namespace Screen_Capture
             if (capturedImages.Count > 0)
             {
                 //폴더 없을 경우 폴더 생성일로 폴더 생성
-                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + DateTime.Now.ToString("yyyy-MM-dd");
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + DateTime.Now.ToString("yyyyMMdd");
                 DirectoryInfo di = new DirectoryInfo(desktopPath);
                 if (!di.Exists) di.Create();
 
