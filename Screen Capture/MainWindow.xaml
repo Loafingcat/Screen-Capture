@@ -7,12 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0,0,0,-6" HorizontalAlignment="Center" Width="800">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="197*"/>
+            <ColumnDefinition Width="603*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="109*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Content="캡쳐하기" HorizontalAlignment="Left" Height="26" Margin="629,383,0,0" VerticalAlignment="Top" Width="53" Click="CaptureScreenButton_Click" RenderTransformOrigin="0.484,-3.079"/>
-        <Image x:Name="previewImage" Margin="90,9,90,74"/>
-        <Button Content="저장" HorizontalAlignment="Left" Margin="710,383,0,0" VerticalAlignment="Top" Height="26" Width="45" Click="SaveImageButton_Click"/>
+        <Button Content="캡쳐하기" HorizontalAlignment="Left" Height="26" Margin="432,383,0,0" VerticalAlignment="Top" Width="53" Click="CaptureScreenButton_Click" RenderTransformOrigin="0.484,-3.079" Grid.Column="1"/>
+        <Image x:Name="previewImage" Margin="103,11,103,72" Grid.ColumnSpan="2" RenderTransformOrigin="0.501,0.509"/>
+        <Button Content="저장" HorizontalAlignment="Left" Margin="513,383,0,0" VerticalAlignment="Top" Height="26" Width="45" Click="SaveImageButton_Click" Grid.Column="1"/>
+        <Button Content="캡쳐 모드" Margin="10,45,111,361"/>
     </Grid>
 </Window>
