@@ -6,11 +6,21 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace Screen_Capture
 {
     public partial class MainWindow : Window
     {
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
+        static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
+
+        [DllImport("user32.Dll")]
+        static extern int PostMessage(IntPtr hWnd, UInt32 msg, int wParam, int lParam);
+
+        private const UInt32 WM_CLOSE = 0x0010;
+
         private List<BitmapImage> capturedImages = new List<BitmapImage>();
 
         public MainWindow()
@@ -99,6 +109,23 @@ namespace Screen_Capture
                 Bitmap bitmap = new Bitmap(outStream);
                 return new Bitmap(bitmap);
             }
+        }
+
+        public void ShowAutoClosingMessageBox(string message, string caption)
+        {
+            var timer = new System.Timers.Timer(1500) { AutoReset = false };
+            timer.Elapsed += delegate
+            {
+                IntPtr hWnd = FindWindowByCaption(IntPtr.Zero, caption);
+                if (hWnd.ToInt32() != 0) PostMessage(hWnd, WM_CLOSE, 0, 0);
+            };
+            timer.Enabled = true;
+            System.Windows.MessageBox.Show(message, caption);
+        }
+
+        private void CaptureMode_Click(object sender, RoutedEventArgs e)
+        {
+            ShowAutoClosingMessageBox("캡쳐모드로 전환합니다", "알림");
         }
     }
 }
