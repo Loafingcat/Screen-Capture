@@ -110,7 +110,7 @@ namespace Screen_Capture
                 return new Bitmap(bitmap);
             }
         }
-
+        //캡쳐모드 전환 시 알림
         public void ShowAutoClosingMessageBox(string message, string caption)
         {
             var timer = new System.Timers.Timer(1500) { AutoReset = false };
